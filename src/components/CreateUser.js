@@ -1,22 +1,24 @@
 import React from 'react';
 import serialForm from 'form-serialize';
+import { useDispatch } from 'react-redux';
+import { addUserActionCreator } from '../actions/action';
 import { DatePicker, Input, InputNumber, Button } from 'antd';
 import 'antd/dist/antd.css';
 
 
-class CreateUser extends React.Component{
-    handleSubmit = (e) => {
+const CreateUser = (props) => {
+    const dispatch = useDispatch();
+    const handleSubmit = (e) => {
         e.preventDefault();
         const values = serialForm(e.target, {hash: true});
-        this.props.handelState(values);
-        this.props.history.push('/');
+        dispatch(addUserActionCreator(values))
+        props.history.push('/');
       }
     
-    render(){
         return (
             <div>
                 <h2>Create New User</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <Input 
                     required
                     name='firstName'
@@ -62,7 +64,6 @@ class CreateUser extends React.Component{
                 </form>
             </div> 
         );
-    }
 }
 
 export default CreateUser;

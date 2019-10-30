@@ -25,7 +25,7 @@ function UserTable(props){
                 return (
                     <tr key={`${firstName}${lastName}${birthDate}${hobby}`}>
                     <td>{firstName}</td>
-                    <td>{lastName}</td>
+                    <td>{lastName.toUpperCase()}</td>
                     <td>{birthDate}</td>
                     <td>{age}</td>
                     <td>{hobby}</td>

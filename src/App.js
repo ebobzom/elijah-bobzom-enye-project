@@ -1,31 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import CreateUser from './components/CreateUser';
 import UserTable from './components/Table';
 import './App.css';
 
-class App extends React.Component {
- state = {
-   users: []
- };
-
- handelState = (val) => this.setState({users: [...this.state.users, val]})
- render(){
+const App = () => {
+  const users = useSelector( state => state.users)
   return (
       <div className="App">
         <Switch>
           <Route exact path='/create' render = { ({history}) => (
-            <CreateUser handelState={this.handelState} history={history} />
+            <CreateUser history={history} />
           )} />
 
           <Route path='*' render={ () => (
-            <UserTable users={this.state.users} />
+            <UserTable users={users} />
           )} />
         </Switch>
       </div>
     );
- }
-  
 }
 
 export default App;
