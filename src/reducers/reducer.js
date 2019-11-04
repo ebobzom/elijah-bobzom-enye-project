@@ -8,7 +8,7 @@ export const reducer = (state = {users: [], error: ''}, action) => {
         case 'DBUSERS':
             return {
                 ...state,
-                users: [...state.users, ...Object.values(action.values)]
+                users: [...Object.values(action.values)]
             }
         default:
             return state;

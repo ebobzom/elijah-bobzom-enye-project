@@ -24,7 +24,7 @@ function UserTable(props){
                 props.users.map( user => {
                 const {UserId, firstName, lastName, birthDate, age, hobby } = user;
                 return (
-                    <tr key={UserId}>
+                    <tr key={`${UserId}${lastName}${firstName}`}>
                     <td>{firstName}</td>
                     <td>{lastName}</td>
                     <td>{birthDate}</td>
