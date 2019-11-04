@@ -1,12 +1,15 @@
-import { ADD_USER } from '../actions/action';
-export const reducer = (state = {users: []}, action) => {
+// import { ADD_USER } from '../actions/action';
+export const reducer = (state = {users: [], error: ''}, action) => {
     switch(action.type){
-        case ADD_USER:
+        case 'ERROR':
+            return {
+                error: action.error
+            }
+        case 'DBUSERS':
             return {
                 ...state,
-                users: [...state.users, action.user]
+                users: [...state.users, ...Object.values(action.values)]
             }
-
         default:
             return state;
     }

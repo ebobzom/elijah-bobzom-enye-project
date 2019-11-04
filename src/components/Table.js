@@ -6,6 +6,7 @@ function UserTable(props){
         <div className='table-container'>
             <h2>Users</h2>
             <Link to='/create'>Add New User</Link> 
+            {/* {JSON.stringify(props.users)} */}
         <table>
             <thead>
                 <tr>
@@ -21,11 +22,11 @@ function UserTable(props){
             {
                 props.users ? 
                 props.users.map( user => {
-                const {firstName, lastName, birthDate, age, hobby } = user;
+                const {UserId, firstName, lastName, birthDate, age, hobby } = user;
                 return (
-                    <tr key={`${firstName}${lastName}${birthDate}${hobby}`}>
+                    <tr key={UserId}>
                     <td>{firstName}</td>
-                    <td>{lastName.toUpperCase()}</td>
+                    <td>{lastName}</td>
                     <td>{birthDate}</td>
                     <td>{age}</td>
                     <td>{hobby}</td>
