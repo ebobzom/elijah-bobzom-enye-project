@@ -10,6 +10,7 @@ function UserTable(props){
         <table>
             <thead>
                 <tr>
+                <th> UserId </th>
                 <th> First Name </th>
                 <th> Last Name </th>
                 <th> Birth Date </th>
@@ -25,11 +26,12 @@ function UserTable(props){
                 const {UserId, firstName, lastName, birthDate, age, hobby } = user;
                 return (
                     <tr key={`${UserId}${lastName}${firstName}`}>
-                    <td>{firstName}</td>
-                    <td>{lastName}</td>
-                    <td>{birthDate}</td>
-                    <td>{age}</td>
-                    <td>{hobby}</td>
+                        <td>{UserId}</td>
+                        <td>{firstName}</td>
+                        <td>{lastName}</td>
+                        <td>{birthDate}</td>
+                        <td>{age}</td>
+                        <td>{hobby}</td>
                     </tr>
                 )
                 }) : null
